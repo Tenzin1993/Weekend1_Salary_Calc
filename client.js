@@ -2,6 +2,7 @@
 $( document ).ready(readyNow);
 
 let yearlyCost = 0;
+let monthlyCost =0;
 
 function readyNow(){
   $('#addEmployeeButton').on('click', submitInfo);
@@ -16,6 +17,13 @@ function submitInfo(){
   $('#blankPage').append('<div>', uno," ", dos," ", tres," ", quatro," ", cinco, '</div>');
   zeCostMonth();
   emptyInput();
+  checkCost();
+}
+
+function checkCost(){
+  if(monthlyCost > 20000){
+    $('#totalMonthCost').css('background','red');
+  }
 }
 
 function emptyInput(){
@@ -28,7 +36,7 @@ function emptyInput(){
 
 function zeCostMonth(){
   yearlyCost = parseInt($('#salaryIn').val()) + yearlyCost;
-  let monthlyCost = (yearlyCost / 12);
+  monthlyCost = (yearlyCost / 12);
   $('#totalMonthCost').empty();
   $('#totalMonthCost').append('Total Monthly Cost: ' + monthlyCost);
 }

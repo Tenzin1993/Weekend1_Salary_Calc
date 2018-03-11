@@ -1,4 +1,26 @@
+body{
+  font-family: sans-serif;
+}
+
 header{
+  padding-top: 40px;
+  padding-left: 150px;
   background: teal;
   height: 120px;
+  text-decoration: underline;
+  font-size: 30px;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+table, td, th {
+    border: 1px solid black;
+}
+
+th {
+  padding-left: 30px;
+  padding-right: 30px;
+  background-color: teal;
 }

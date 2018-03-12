@@ -17,7 +17,7 @@ class Employee {
 
 function readyNow(){
   $('#addEmployeeButton').on('click', submitInfo);
-  $('#content').on('click', ".ripEmployee", theyGone);
+  $('#content').on('click', ".ripEmployee", removePerson);
 }
 
 function submitInfo(){
@@ -31,16 +31,18 @@ function submitInfo(){
   checkCost();
 }
 
-function theyGone(){
-  $(this).remove();
-}
+function removePerson(){
+//I need a way to select the specfic index
+  employeeList.shift();
+  appendToDom();
 
+}
 
 function appendToDom(){
   let outputElement = $('#content');
   outputElement.empty();
   for (let employee of employeeList){
-    outputElement.append('<tr><td>' + employee.firstName +'</td><td>' + employee.lastName + '</td><td>' + employee.id + '</td><td>' + employee.jobTitle +'</td><td>'+ employee.salary + '</td><td>' + '<button class = ripEmployee>Terminate</button>' + '</td></tr>');
+    outputElement.append('<tr><td>' + employee.firstName +'</td><td>' + employee.lastName + '</td><td>' + employee.id + '</td><td>' + employee.jobTitle +'</td><td>'+ employee.salary + '</td><td>' + '<button class = "ripEmployee">Terminate</button>' + '</td></tr>');
   }
 }
 
